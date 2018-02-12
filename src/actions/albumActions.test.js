@@ -1,7 +1,8 @@
-import { ADD_ALBUM, RENAME_ALBUM } from './types';
+import { ADD_ALBUM, RENAME_ALBUM, DELETE_ALBUM } from './types';
 import {
   addAlbum,
   renameAlbum,
+  deleteAlbum,
   addPhotoToAlbum,
   renamePhotoInAlbum,
   deletePhotoFromAlbum,
@@ -26,6 +27,14 @@ describe('test galery action creators', () => {
       type: RENAME_ALBUM,
       albumUuid: uuid,
       albumNewName: newName
+    })
+  });
+
+  it('should delete album', () => {
+    let uuid = 1;
+    expect(deleteAlbum(uuid)).toEqual({
+      type: DELETE_ALBUM,
+      albumUuid: uuid,
     })
   });
 
