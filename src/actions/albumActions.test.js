@@ -1,12 +1,22 @@
+import { ADD_ALBUM } from './types';
 import { addPhoto, renamePhoto, deletePhoto } from './photoActions';
 import {
   addPhotoToAlbum,
   renamePhotoInAlbum,
-  deletePhotoFromAlbum
+  deletePhotoFromAlbum,
+  addAlbum
 } from './albumActions';
 
 
 describe('test galery action creators', () => {
+
+  it('should add album', () => {
+    let name = 'album name';
+    expect(addAlbum(name)).toEqual({
+      type: ADD_ALBUM,
+      albumName: name
+    })
+  });
 
   it('should add photo to album', () => {
     let uuid = 1;

@@ -1,5 +1,10 @@
-import { ADD_PHOTO } from './types';
 import { addPhoto, renamePhoto, deletePhoto } from './photoActions';
+import { ADD_ALBUM } from './types';
+
+export const addAlbum = (name) => ({
+  type: ADD_ALBUM,
+  albumName: name
+})
 
 export const addPhotoToAlbum = (albumUuid, photoName, photoURL) => ({
   albumUuid: albumUuid,
