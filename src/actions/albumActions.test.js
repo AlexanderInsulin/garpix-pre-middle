@@ -1,6 +1,9 @@
-import { ADD_PHOTO } from './types';
-import { addPhotoToAlbum, renamePhotoInAlbum } from './albumActions';
-import { addPhoto, renamePhoto } from './photoActions';
+import { addPhoto, renamePhoto, deletePhoto } from './photoActions';
+import {
+  addPhotoToAlbum,
+  renamePhotoInAlbum,
+  deletePhotoFromAlbum
+} from './albumActions';
 
 
 describe('test galery action creators', () => {
@@ -23,6 +26,26 @@ describe('test galery action creators', () => {
     expect(renamePhotoInAlbum(albumUuid, photoUuid, newName)).toEqual({
       albumUuid: albumUuid,
       ...renamePhoto(photoUuid, newName)
+    })
+  });
+
+  it('should rename photo in album', () => {
+    let albumUuid = 1;
+    let photoUuid = 10;
+    let newName = 'new name';
+    let photoURL = 'image';
+    expect(renamePhotoInAlbum(albumUuid, photoUuid, newName)).toEqual({
+      albumUuid: albumUuid,
+      ...renamePhoto(photoUuid, newName)
+    })
+  });
+
+  it('should delete photo from album', () => {
+    let albumUuid = 1;
+    let photoUuid = 10;
+    expect(deletePhotoFromAlbum(albumUuid, photoUuid)).toEqual({
+      albumUuid: albumUuid,
+      ...deletePhoto(photoUuid)
     })
   });
 });
