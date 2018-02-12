@@ -1,7 +1,7 @@
 import { addPhoto, renamePhoto } from './photoActions';
 import { ADD_PHOTO, RENAME_PHOTO } from './types';
 
-describe('test photo actions', () => {
+describe('test photo action creators', () => {
 
   test('should add photo', () => {
     let name = 'name';
