@@ -1,5 +1,5 @@
-import { addPhoto } from './photoActions';
-import { ADD_PHOTO } from './types';
+import { addPhoto, renamePhoto } from './photoActions';
+import { ADD_PHOTO, RENAME_PHOTO } from './types';
 
 describe('test photo actions', () => {
 
@@ -10,6 +10,16 @@ describe('test photo actions', () => {
       type: ADD_PHOTO,
       photoName: name,
       photoURL: href
+    })
+  });
+
+  test('should rename photo', () => {
+    let uuid = 1;
+    let newName = 'new name';
+    expect(renamePhoto(uuid, newName)).toEqual({
+      type: RENAME_PHOTO,
+      photoUuid: uuid,
+      photoNewName: newName
     })
   });
 });
