@@ -1,11 +1,12 @@
-import { ADD_ALBUM } from './types';
-import { addPhoto, renamePhoto, deletePhoto } from './photoActions';
+import { ADD_ALBUM, RENAME_ALBUM } from './types';
 import {
+  addAlbum,
+  renameAlbum,
   addPhotoToAlbum,
   renamePhotoInAlbum,
   deletePhotoFromAlbum,
-  addAlbum
 } from './albumActions';
+import { addPhoto, renamePhoto, deletePhoto } from './photoActions';
 
 
 describe('test galery action creators', () => {
@@ -15,6 +16,16 @@ describe('test galery action creators', () => {
     expect(addAlbum(name)).toEqual({
       type: ADD_ALBUM,
       albumName: name
+    })
+  });
+
+  it('should rename album', () => {
+    let uuid = 1;
+    let newName = 'album new name';
+    expect(renameAlbum(uuid, newName)).toEqual({
+      type: RENAME_ALBUM,
+      albumUuid: uuid,
+      albumNewName: newName
     })
   });
 
