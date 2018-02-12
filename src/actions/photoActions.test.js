@@ -1,5 +1,5 @@
-import { addPhoto, renamePhoto } from './photoActions';
-import { ADD_PHOTO, RENAME_PHOTO } from './types';
+import { addPhoto, renamePhoto, deletePhoto} from './photoActions';
+import { ADD_PHOTO, RENAME_PHOTO, DELETE_PHOTO } from './types';
 
 describe('test photo action creators', () => {
 
@@ -20,6 +20,14 @@ describe('test photo action creators', () => {
       type: RENAME_PHOTO,
       photoUuid: uuid,
       photoNewName: newName
+    })
+  });
+
+  test('should delete photo', () => {
+    let uuid = 1;
+    expect(deletePhoto(uuid)).toEqual({
+      type: DELETE_PHOTO,
+      photoUuid: uuid,
     })
   });
 });
