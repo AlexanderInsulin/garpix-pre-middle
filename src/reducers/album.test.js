@@ -18,4 +18,16 @@ describe('album reducer', () => {
       photos: []
     });
   });
+
+  it('should rename album', () => {
+    let name = 'album name';
+    let a = album(undefined, actions.album.addAlbum(name))
+    let uuid = a.uuid;
+    let newName = 'new album name';
+    expect(album(a, actions.album.renameAlbum(uuid, newName))).toEqual({
+      uuid: v4(),
+      name: newName,
+      photos: []
+    });
+  });
 });

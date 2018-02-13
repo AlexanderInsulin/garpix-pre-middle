@@ -15,6 +15,8 @@ const album = (state = initialState, action) => {
         name: action.albumName,
         photos: []
       }
+    case actions.types.RENAME_ALBUM:
+      return {...state, name: action.albumNewName}
     default:
       return state
   }
