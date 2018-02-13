@@ -19,4 +19,15 @@ describe('photo reducer', () => {
       imageURL: url
     })
   });
+
+  it('should rename photo', () => {
+    let p = photo(undefined, actions.photo.addPhoto('name', 'url'));
+    let uuid = p.uuid;
+    let newName = 'new photo name';
+    expect(photo(p, actions.photo.renamePhoto(uuid, newName))).toEqual({
+      uuid: v4(),
+      name: newName,
+      imageURL: p.imageURL,
+    })
+  });
 });
