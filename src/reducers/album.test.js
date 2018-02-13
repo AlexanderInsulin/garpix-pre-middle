@@ -55,4 +55,16 @@ describe('album reducer actions with photos', () => {
         ]
       });
   });
+
+  it('should add delete from album', () => {
+    let photoName = 'photo name';
+    let photoImage = 'photo image';
+    a = album(a,actions.album.addPhotoToAlbum(a.uuid, photoName, photoImage));
+    expect(
+      album(
+        a,
+        actions.album.deletePhotoFromAlbum(a.uuid, a.photos[0].uuid)
+      ).photos
+    ).toEqual([]);
+  });
 })

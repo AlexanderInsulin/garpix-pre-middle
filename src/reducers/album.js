@@ -17,14 +17,28 @@ const album = (state = initialState, action) => {
         photos: []
       }
     case actions.types.RENAME_ALBUM:
+      if (action.albumUuid != state.uuid) {
+        return state;
+      }
       return {...state, name: action.albumNewName}
     case actions.types.ADD_PHOTO:
+      if (action.albumUuid != state.uuid) {
+        return state;
+      }
       return {
         ...state,
         photos: [
           ...state.photos,
           photo(undefined, actions.photo.addPhoto(action.photoName, action.photoURL))
         ]
+      }
+    case actions.types.DELETE_PHOTO:
+      if (action.albumUuid != state.uuid) {
+        return state;
+      }
+      return {
+        ...state,
+        photos: state.photos.filter(photo => photo.uuid != action.photoUuid)
       }
     default:
       return state
