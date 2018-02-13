@@ -31,3 +31,28 @@ describe('album reducer', () => {
     });
   });
 });
+
+describe('album reducer actions with photos', () => {
+
+  let a;
+  beforeEach(() => {
+    a = album(undefined, 'album name');
+  });
+
+  it('should add photo to album', () => {
+    let photoName = 'photo name';
+    let photoImage = 'photo image';
+    expect(album(a,
+      actions.album.addPhotoToAlbum(a.uuid, photoName, photoImage))).toEqual({
+        uuid: a.uuid,
+        name: a.name,
+        photos: [
+          {
+            uuid: 1,
+            name: photoName,
+            imageURL: photoImage
+          }
+        ]
+      });
+  });
+})

@@ -1,4 +1,5 @@
 import actions from '../actions';
+import photo from './photo';
 import { v4 } from 'uuid';
 
 const initialState = {
@@ -17,6 +18,14 @@ const album = (state = initialState, action) => {
       }
     case actions.types.RENAME_ALBUM:
       return {...state, name: action.albumNewName}
+    case actions.types.ADD_PHOTO:
+      return {
+        ...state,
+        photos: [
+          ...state.photos,
+          photo(undefined, actions.photo.addPhoto(action.photoName, action.photoURL))
+        ]
+      }
     default:
       return state
   }
