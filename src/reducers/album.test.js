@@ -56,7 +56,26 @@ describe('album reducer actions with photos', () => {
       });
   });
 
-  it('should add delete from album', () => {
+  it('should rename photo in album', () => {
+    let photoName = 'photo name';
+    let photoImage = 'photo image';
+    let photoNewName = 'photo new Name';
+    a = album(a,actions.album.addPhotoToAlbum(a.uuid, photoName, photoImage));
+    expect(
+      album(
+        a,
+        actions.album.renamePhotoInAlbum(a.uuid, a.photos[0].uuid, photoNewName)
+      ).photos
+    ).toEqual([
+      {
+        uuid: a.photos[0].uuid,
+        name: photoNewName,
+        imageURL: a.photos[0].imageURL
+      }
+    ]);
+  });
+
+  it('should delete photo from album', () => {
     let photoName = 'photo name';
     let photoImage = 'photo image';
     a = album(a,actions.album.addPhotoToAlbum(a.uuid, photoName, photoImage));

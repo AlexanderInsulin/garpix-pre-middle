@@ -16,6 +16,9 @@ export const photo = (state = initialState, action) => {
         imageURL: action.photoURL
       }
     case actions.types.RENAME_PHOTO:
+      if (action.photoUuid != state.uuid) {
+        return state;
+      }
       return {...state, name: action.photoNewName}
     default:
       return state;

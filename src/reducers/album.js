@@ -32,6 +32,14 @@ const album = (state = initialState, action) => {
           photo(undefined, actions.photo.addPhoto(action.photoName, action.photoURL))
         ]
       }
+    case actions.types.RENAME_PHOTO:
+      if (action.albumUuid != state.uuid) {
+        return state;
+      }
+      return {
+        ...state,
+        photos: state.photos.map(p => photo(p, action))
+      }
     case actions.types.DELETE_PHOTO:
       if (action.albumUuid != state.uuid) {
         return state;
