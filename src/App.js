@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Galery from './components/Galery';
-import AreYouShure from './components/AreYouShure';
+import OpenButton from './components/OpenButton';
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <Navbar title="head" />
         <Galery />
-        <AreYouShure name="this" />
+        <OpenButton />
       </div>
     );
   }
