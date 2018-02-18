@@ -17,12 +17,12 @@ const album = (state = initialState, action) => {
         photos: []
       }
     case actions.types.RENAME_ALBUM:
-      if (action.albumUuid != state.uuid) {
+      if (action.albumUuid !== state.uuid) {
         return state;
       }
       return {...state, name: action.albumNewName}
     case actions.types.ADD_PHOTO:
-      if (action.albumUuid != state.uuid) {
+      if (action.albumUuid !== state.uuid) {
         return state;
       }
       return {
@@ -33,7 +33,7 @@ const album = (state = initialState, action) => {
         ]
       }
     case actions.types.RENAME_PHOTO:
-      if (action.albumUuid != state.uuid) {
+      if (action.albumUuid !== state.uuid) {
         return state;
       }
       return {
@@ -41,12 +41,12 @@ const album = (state = initialState, action) => {
         photos: state.photos.map(p => photo(p, action))
       }
     case actions.types.DELETE_PHOTO:
-      if (action.albumUuid != state.uuid) {
+      if (action.albumUuid !== state.uuid) {
         return state;
       }
       return {
         ...state,
-        photos: state.photos.filter(photo => photo.uuid != action.photoUuid)
+        photos: state.photos.filter(photo => photo.uuid !== action.photoUuid)
       }
     default:
       return state
