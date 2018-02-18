@@ -1,27 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
 
-// var modal = false;
-
-// var AddImage = () => (
-//   <div>
-//     <Button color="danger" onClick={toggle}> 0 </Button>
-//     <Modal isOpen={modal} toggle={toggle}>
-//       <ModalHeader> 1 </ModalHeader>
-//       <ModalBody> 2 </ModalBody>
-//       <ModalFooter> 3 </ModalFooter>
-//     </Modal>
-//   </div>
-// );
-
-// const toggle = () => {
-//   console.log(modal);
-//   var b = modal;
-//   console.log(b);
-//   modal = !modal;
-//   console.log(modal);
-// };
-
 class AddImage extends Component {
   constructor(props) {
     super(props);
