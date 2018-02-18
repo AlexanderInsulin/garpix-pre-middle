@@ -5,7 +5,7 @@ class AddAlbum extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modalOpen: false
     };
 
     this.toggle = this.toggle.bind(this);
@@ -13,7 +13,7 @@ class AddAlbum extends Component {
 
   toggle() {
     this.setState({
-      modal: !this.state.modal
+      modalOpen: !this.state.modalOpen
     });
   }
 
@@ -21,7 +21,7 @@ class AddAlbum extends Component {
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>Открыть модалку</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+        <Modal isOpen={this.state.modalOpen} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Создание альбома</ModalHeader>
           <ModalBody>
             <Input type="text" placeholder="Название альбома" />
