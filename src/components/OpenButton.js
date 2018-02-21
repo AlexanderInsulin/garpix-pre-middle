@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
-import AreYouShure from './AreYouShure';
+import AreYouShureModal from './AreYouShureModal';
 
 class OpenButton extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class OpenButton extends Component {
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>Открыть модалку</Button>
-        <AreYouShure open={this.state.modalOpen} toggle={this.toggle} name={'xyz'}/>
+        <AreYouShureModal open={this.state.modalOpen} toggle={this.toggle} name={'xyz'}/>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
 
-const AddImage = ({ open, toggle }) => (
+const AddImageModal = ({ open, toggle }) => (
   <Modal isOpen={open} toggle={toggle}>
     <ModalHeader toggle={toggle}> Загрузка фотографии </ModalHeader>
     <ModalBody>
@@ -15,4 +15,4 @@ const AddImage = ({ open, toggle }) => (
   </Modal>
 );
 
-export default AddImage;
+export default AddImageModal;

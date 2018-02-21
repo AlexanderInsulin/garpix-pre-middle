@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
 
-const AddAlbum = ({ open, toggle }) => (
+const AddAlbumModal = ({ open, toggle }) => (
   <Modal isOpen={open} toggle={toggle}>
     <ModalHeader toggle={toggle}>Создание альбома</ModalHeader>
     <ModalBody>
@@ -14,4 +14,4 @@ const AddAlbum = ({ open, toggle }) => (
   </Modal>
 );
 
-export default AddAlbum;
+export default AddAlbumModal;

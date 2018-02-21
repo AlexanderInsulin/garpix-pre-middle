@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Image.css';
 import { Col } from 'reactstrap';
-import AddImage from './AddImage';
+import AddImageModal from './AddImageModal';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
 const showStyle = 'imageSizeShow';
@@ -36,7 +36,7 @@ class Image extends Component {
     return (
       <Col xs="12" sm="6" lg="4" xl="3">
         {this.state.image ? showImage(this.state.name, this.state.image, showStyle) : showImage('', createImage, createStyle, this.toggle)}
-        <AddImage open={this.state.modalOpen} toggle={this.toggle}/>
+        <AddImageModal open={this.state.modalOpen} toggle={this.toggle}/>
       </Col>
     );
   }
