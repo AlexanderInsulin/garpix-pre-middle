@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
+import { Button } from 'reactstrap';
 import AreYouShureModal from './AreYouShureModal';
 
 class OpenButton extends Component {

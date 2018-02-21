@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
+import React from 'react';
+import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
 
 const AreYouShureModal = ({ open, name, toggle }) => (
   <Modal isOpen={open} toggle={toggle}>
