@@ -9,7 +9,9 @@ const createStyle = 'imageSizeCreate';
 
 const showImage = (name, image, sizeStyle, toglle) => (
   <div className="imageCard" onClick={toglle}>
-    <div className={sizeStyle + " imageImage"} style={{ backgroundImage: `url(${image})` }}> <div className="borderShower" /> </div>
+    <div className={sizeStyle + " imageImage"} style={{ backgroundImage: `url(${image})` }}>
+      <div className="borderShower" />
+    </div>
     <div className="imageText"> {name} </div>
   </div>
 );
@@ -36,7 +38,7 @@ class Image extends Component {
     return (
       <Col xs="12" sm="6" lg="4" xl="3">
         {this.state.image ? showImage(this.state.name, this.state.image, showStyle) : showImage('', createImage, createStyle, this.toggle)}
-        <AddImageModal open={this.state.modalOpen} toggle={this.toggle}/>
+        <AddImageModal open={this.state.modalOpen} toggle={this.toggle} />
       </Col>
     );
   }

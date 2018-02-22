@@ -2,6 +2,19 @@
   margin-top: 42px;
 }
 
+.imageCard:hover {
+  cursor: pointer;
+  
+}
+
+.imageCard:hover .borderShower {
+  background-color: rgba(169, 169, 169, 0.5);
+}
+
+.imageCard:hover .imageText {
+  color: rgb(177, 177, 177);
+}
+
 .imageImage {
   background-repeat: no-repeat;
   background-position: center;
