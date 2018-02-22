@@ -34,6 +34,16 @@ export const previewPhotoFailure = (error) => ({
   error: error
 })
 
+export const uploadPhoto = (albumUuid, photoName, imageBase64) => (dispatch) => {
+  axios.post('https://api.imgur.com/3/image', {
+    title: photoName,
+    image: imageBase64
+  }, {
+    headers: { 'Authorization': 'Client-ID 6a5400948b3b376' },
+  }).then((res) => dispatch(uploadPhotoSuccess(res.data.data.link)))
+    .catch((error) => uploadPhotoFailure(error))
+}
+
 export const uploadPhotoRequest = () => ({
   type: UPLOAD_PHOTO_REQUEST
 })
