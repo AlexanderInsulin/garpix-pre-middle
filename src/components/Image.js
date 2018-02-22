@@ -9,7 +9,7 @@ const createStyle = 'imageSizeCreate';
 
 const showImage = (name, image, sizeStyle, toglle) => (
   <div className="imageCard" onClick={toglle}>
-    <div className={sizeStyle + " imageImage"} style={{ backgroundImage: `url(${image})` }}>
+    <div className={"imageImage " + sizeStyle} style={{ backgroundImage: `url(${image})` }}>
       <div className="borderShower" />
     </div>
     <div className="imageText"> {name} </div>
