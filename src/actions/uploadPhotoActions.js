@@ -17,3 +17,8 @@ export const previewPhotoFailure = (error) => ({
   type: PREVIEW_PHOTO_FAILURE,
   error: error
 })
+
+export const previewPhotoSuccess = (imageBase64) => ({
+  type: PREVIEW_PHOTO_SUCCESS,
+  image: imageBase64
+})
