@@ -8,6 +8,18 @@ import {
 } from './types';
 import axios from 'axios';
 
+export const previewPhoto = (photoFile) => (dispatch) => {
+  dispatch(previewPhotoRequest());
+  let reader = new FileReader();
+  reader.readAsDataURL(photoFile);
+  reader.onload = () => {
+    dispatch(previewPhotoSuccess(reader.result))
+  }
+  reader.onerror = (e) => {
+    dispatch(previewPhotoFailure(e))
+  }
+}
+
 export const previewPhotoRequest = () => ({
   type: PREVIEW_PHOTO_REQUEST
 })
