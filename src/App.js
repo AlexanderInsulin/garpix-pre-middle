@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
-import Galery from './components/Galery';
+import GaleryPage from './pages/GaleryPage';
+import PhotoPage from './pages/PhotoPage';
+import AlbumPage from './pages/AlbumPage';
 import OpenButton from './components/OpenButton';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Navbar title="head" />
-        <Galery />
-        <OpenButton />
-      </div>
+      <Router>
+        <div style={{height: '100%'}}>
+          <Route exact path="/" component={GaleryPage}/>
+          <Route path="/album" component={AlbumPage}/>
+          <Route path="/photo" component={PhotoPage}/>
+        </div>
+      </Router>
     );
   }
 }
