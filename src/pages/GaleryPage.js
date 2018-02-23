@@ -10,7 +10,7 @@ const GaleryPage = ({albums, addAlbum}) => (
     <Container>
       <Row>
         {albums.map((album, key) =>
-          <Album key={key} name={album.name} image="https://pp.userapi.com/c831209/v831209113/22953/iERgDLPebI0.jpg"/>
+          <Album key={key} uuid={album.uuid} name={album.name} image="https://pp.userapi.com/c831209/v831209113/22953/iERgDLPebI0.jpg"/>
         )}
         <Album />
       </Row>
