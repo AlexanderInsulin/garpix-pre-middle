@@ -4,12 +4,22 @@ import { Col } from 'reactstrap';
 import AddAlbumModal from './AddAlbumModal';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
+const show = {
+  image: 'backSize',
+  spaser: 'spaser',
+  text: 'text',
+}
+const create = {
+  image: 'imageSizeCreate',
+  spaser: 'spaserCreate',
+  text: '',
+}
 
-const showImage = (name, image, sizeStyle, toglle) => (
-  <div className={"card " + sizeStyle} style={{ backgroundImage: `url(${image})` }} onClick={toglle}>
+const showImage = (name, image, style, toglle) => (
+  <div className={"card " + style.image} style={{ backgroundImage: `url(${image})` }} onClick={toglle}>
     <div className="bordering">
-      <div className="spaser marginator"> </div>
-      <div className="text marginator"> <div className="textInner"> {name} </div> </div>
+      <div className={"marginator " + style.spaser}> </div>
+      <div className={"marginator " + style.text}> <div className="textInner"> {name} </div> </div>
     </div>
   </div>
 );
@@ -35,7 +45,7 @@ class Album extends Component {
   render() {
     return (
       <Col xs="12" md="6" xl="4">
-        {this.state.image ? showImage(this.state.name, this.state.image, "backSize") : showImage('', createImage, "backSizeCreate", this.toggle)}
+        {this.state.image ? showImage(this.state.name, this.state.image, show) : showImage('', createImage, create, this.toggle)}
         <AddAlbumModal open={this.state.modalOpen} toggle={this.toggle} />
       </Col>
     );
