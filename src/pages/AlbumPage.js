@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Row } from 'reactstrap'
+import { connect } from 'react-redux'
 import Image from '../components/Image';
 import Navbar from '../components/Navbar';
 
-export const AlbumPage = () => (
+export const AlbumPage = ({albums}) => (
   <div>
     <Navbar title="album" />
     <Container>
@@ -20,4 +21,7 @@ export const AlbumPage = () => (
   </div>
 )
 
-export default AlbumPage;
+const mapStateToProps = (state) => ({
+    albums: state.galery
+})
+export default connect(mapStateToProps)(AlbumPage);
