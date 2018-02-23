@@ -36,25 +36,30 @@
 .navBackIcon {
   font-size: 36px;
   margin:0px;
+  border-radius: 20%;
 }
 
 .navBackIcon:hover {
-  background-color:rgba(195, 195, 195, 0.5);
-  border-radius: 100%;
+  background:#A2A2A2;
+  border-radius: 20%;
+  -webkit-transition: all 0.33s ease;
+  transition: all 0.33s ease;
 }
 
 .rightContent {
-  height: 54px;
+  height: 36px;
+  width: 36px;
+  margin: 9px !important;
 }
 
 .navRightIcons {
-  height: 36px;
-  width: 36px;
-  margin: 9px;
   padding: 6px;
+  border-radius: 20%;
 }
 
 .navRightIcons:hover {
-  background-color:rgba(195, 195, 195, 0.5);
-  border-radius: 100%;
+  background:#A2A2A2;
+  border-radius: 20%;
+  -webkit-transition: all 0.33s ease;
+  transition: all 0.33s ease;
 }
