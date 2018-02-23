@@ -2,8 +2,8 @@
   background-color:#818181;
   height: 64px;
   padding: 0px;
-  padding-left: 22px !important;
-  padding-right: 30px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
   flex-flow: row nowrap !important; 
 }
 
@@ -16,11 +16,13 @@
 .customBrandStyle {
   padding-top: 0px! important;
   padding-bottom: 0px!  important;
+  margin-right: 0px!  important;
 }
 
 .leftContent {
   height: 36px;
   margin-right: 22px!  important;
+  padding-left: 7px;
 }
 
 .leftBorder {
@@ -36,15 +38,8 @@
   margin:0px;
 }
 
-
-
-
-
-.navRightIcon {
-  margin-right: 22px;
-
-}
-
-.navEditter {
-  color: red;
+.navRightIcons {
+  height: 24px;
+  padding-left: 15px;
+  padding-right: 15px;  
 }

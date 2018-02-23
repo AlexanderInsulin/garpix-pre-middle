@@ -11,18 +11,13 @@ const Navbar = ({ title }) => (
       </NavbarBrand>
 
   <div className="leftBorder"></div>
-
-
   <div className="navCenter"> {title} </div>
-  <div>
-
-
-    <NavbarBrand href="/" className="navEditter">
+    <NavbarBrand href="/" className="customBrandStyle navRightIcons">
        <i className="material-icons ">create</i>
     </NavbarBrand>
-
-
-  </div>
+    <NavbarBrand href="/" className="customBrandStyle navRightIcons">
+       <i className="material-icons ">delete</i>
+    </NavbarBrand>
   </NavbarBootstrap>
 );
 
