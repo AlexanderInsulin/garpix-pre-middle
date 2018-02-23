@@ -2,15 +2,9 @@
   background-color:#818181;
   height: 64px;
   padding: 0px;
-  padding-left: 22px; 
-  padding-right: 30px; 
+  padding-left: 22px !important;
+  padding-right: 30px !important;
   flex-flow: row nowrap !important; 
-}
-
-.rightBorder {
-  border-right: 2px solid; 
-  border-right-color: white; 
-  height: 30px;
 }
 
 .navCenter {
@@ -19,18 +13,38 @@
   text-align: center;
   font-size: 24px !important;
 }
-.navBackIcon {
-  margin-right: 22px;
-  font-size: 36px;
+.customBrandStyle {
+  padding-top: 0px! important;
+  padding-bottom: 0px!  important;
 }
+
+.leftContent {
+  height: 36px;
+  margin-right: 22px!  important;
+}
+
+.leftBorder {
+  border-right: 2px solid; 
+  border-right-color: white; 
+  height: 30px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.navBackIcon {
+  font-size: 36px;
+  margin:0px;
+}
+
+
+
+
 
 .navRightIcon {
   margin-right: 22px;
-  height: 22px;
+
 }
 
-
-
 .navEditter {
-  color: white;
+  color: red;
 }
