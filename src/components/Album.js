@@ -18,7 +18,7 @@ const create = {
 const showImage = (name, image, style, toglle) => (
   <div className={"card " + style.image} style={{ backgroundImage: `url(${image})` }}>
     <div className="close">
-      <Button>&times;</Button>
+      <Button className="close_btn_custom">&times;</Button>
     </div>
     <div className="bordering" onClick={toglle}>
       <div className={"marginator " + style.spaser}>
