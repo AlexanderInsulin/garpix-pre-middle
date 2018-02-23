@@ -2,30 +2,44 @@
   background-color:#818181;
   height: 64px;
   padding: 0px;
-  padding-left: 22px; 
-  padding-right: 30px; 
+  padding-left: 15px !important;
+  padding-right: 15px !important;
   flex-flow: row nowrap !important; 
-}
-
-.rightBorder {
-  border-right: 2px solid; 
-  border-right-color: white; 
-  height: 36px;
-}
-
-.navIcone {
-  margin-right: 22px;
-  height: 21px;
 }
 
 .navCenter {
   width: 100%;
-  height: 21px;
   color: white;
   text-align: center;
-  
+  font-size: 24px !important;
+}
+.customBrandStyle {
+  padding-top: 0px! important;
+  padding-bottom: 0px!  important;
+  margin-right: 0px!  important;
 }
 
-.navEditter {
-  color: white;
+.leftContent {
+  height: 36px;
+  margin-right: 22px!  important;
+  padding-left: 7px;
+}
+
+.leftBorder {
+  border-right: 2px solid; 
+  border-right-color: white; 
+  height: 30px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.navBackIcon {
+  font-size: 36px;
+  margin:0px;
+}
+
+.navRightIcons {
+  height: 24px;
+  padding-left: 15px;
+  padding-right: 15px;  
 }
