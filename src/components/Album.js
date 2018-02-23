@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Album.css';
-import { Col } from 'reactstrap';
+import { Col, Button } from 'reactstrap';
 import AddAlbumModal from './AddAlbumModal';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
@@ -16,9 +16,13 @@ const create = {
 }
 
 const showImage = (name, image, style, toglle) => (
-  <div className={"card " + style.image} style={{ backgroundImage: `url(${image})` }} onClick={toglle}>
-    <div className="bordering">
-      <div className={"marginator " + style.spaser}> </div>
+  <div className={"card " + style.image} style={{ backgroundImage: `url(${image})` }}>
+    <div className="close">
+      <Button>&times;</Button>
+    </div>
+    <div className="bordering" onClick={toglle}>
+      <div className={"marginator " + style.spaser}>
+      </div>
       <div className={"marginator " + style.text}> <div className="textInner"> {name} </div> </div>
     </div>
   </div>
