@@ -18,7 +18,7 @@ class Album extends Component {
     this.state = {
       name: this.props.name,
       image: this.props.image,
-      modalOpen: false
+      modalOpen: false,
     }
 
     this.toggle = this.toggle.bind(this);
@@ -34,7 +34,7 @@ class Album extends Component {
     return (
       <Col xs="12" md="6" xl="4">
         {this.state.image ? showImage(this.state.name, this.state.image, "backSize") : showImage('', createImage, "backSizeCreate", this.toggle)}
-        <AddAlbumModal open={this.state.modalOpen} toggle={this.toggle} />
+        <AddAlbumModal open={this.state.modalOpen} toggle={this.toggle}/>
       </Col>
     );
   }
