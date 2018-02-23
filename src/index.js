@@ -8,6 +8,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { loadState, saveState } from './utils/storageState';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const persistedState = loadState();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
