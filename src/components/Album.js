@@ -7,8 +7,10 @@ const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU
 
 const showImage = (name, image, sizeStyle, toglle) => (
   <div className={"card " + sizeStyle} style={{ backgroundImage: `url(${image})` }} onClick={toglle}>
-    <div className="filler"> </div>
-    <div className="text"> {name} </div>
+    <div className="bordering">
+      <div className="spaser marginator"> </div>
+      <div className="text marginator"> <div className="textInner"> {name} </div> </div>
+    </div>
   </div>
 );
 
