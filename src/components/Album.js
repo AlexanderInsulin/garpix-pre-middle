@@ -33,7 +33,7 @@ class Album extends Component {
     this.state = {
       name: props.name,
       image: props.image,
-      modalOpen: false
+      modalOpen: false,
     }
 
     this.toggle = this.toggle.bind(this);
