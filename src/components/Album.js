@@ -31,8 +31,8 @@ class Album extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.name,
-      image: this.props.image,
+      name: props.name,
+      image: props.image,
       modalOpen: false
     }
 
