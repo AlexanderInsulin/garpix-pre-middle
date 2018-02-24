@@ -13,7 +13,7 @@
     visibility: hidden;
 }
 
-.card:hover  .close-visible {
+.prew-close:hover  .close-visible {
     visibility: visible;
 }
 

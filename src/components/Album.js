@@ -17,7 +17,7 @@ const create = {
 }
 
 const showImage = (name, image, style, toglle) => (
-  <div className={"card " + style.image} style={{ backgroundImage: `url(${image})` }}>
+  <div className={"card prew-close " + style.image} style={{ backgroundImage: `url(${image})` }}>
     {style.image == 'backSize' ? <CloseButton /> : null}
     <div className="bordering" onClick={toglle}>
       <div className={"marginator " + style.spaser}>
