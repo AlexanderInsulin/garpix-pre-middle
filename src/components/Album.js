@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Album.css';
 import { Col } from 'reactstrap';
 import AddAlbumModal from './AddAlbumModal';
+import CloseButton from './CloseButton';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
 const show = {
@@ -17,9 +18,7 @@ const create = {
 
 const showImage = (name, image, style, toglle) => (
   <div className={"card " + style.image} style={{ backgroundImage: `url(${image})` }}>
-    <div className="close close-visible">
-      <div className="close_btn">&times;</div>
-    </div>
+    {style.image == 'backSize' ? <CloseButton /> : null}
     <div className="bordering" onClick={toglle}>
       <div className={"marginator " + style.spaser}>
       </div>
