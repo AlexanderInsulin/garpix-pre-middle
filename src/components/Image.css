@@ -9,10 +9,14 @@
 
 .imageCard:hover .borderShower {
   background-color: rgba(169, 169, 169, 0.5);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .imageCard:hover .imageText {
   color: rgb(177, 177, 177);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .imageImage {

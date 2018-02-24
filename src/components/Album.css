@@ -27,10 +27,14 @@
 
 .card:hover .bordering, .close:hover ~ .bordering {  
   background-color: rgba(169, 169, 169, 0.5);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .bordering:hover .text, .close:hover ~ .bordering .text { 
   background-color: rgba(169, 169, 169, 0.75);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .spaser {
