@@ -21,15 +21,15 @@
   height: 100%;
 }
 
-.bordering:hover {
+.card:hover .bordering {
   cursor: pointer;
 }
 
-.bordering:hover {  
+.card:hover .bordering, .close:hover ~ .bordering {  
   background-color: rgba(169, 169, 169, 0.5);
 }
 
-.bordering:hover .text { 
+.bordering:hover .text, .close:hover ~ .bordering .text { 
   background-color: rgba(169, 169, 169, 0.75);
 }
 
@@ -77,18 +77,22 @@
   height: 32px;
   margin-bottom: -39px;
   margin-top: 7px;
-  margin-right: 7px;
+  margin-right: 7px; 
+  border-radius: 4px;
+  background-color: rgb(216, 216, 216);
 }
 
-.close_btn_custom {
-  line-height: 0px !important;
-  font-size: 32px !important;
-  width: 32px !important;
-  height: 32px !important;
-  padding: 0px !important;
-  padding-left: 1px !important;
-  padding-bottom: 5px !important;
-  color: rgba(217, 83, 79, 1) !important;
-  background-color: rgba(216, 216, 216, 0.25) !important;
-  border:none !important;
+.close-visible {
+  visibility: hidden;
+}
+
+.backSize:hover  .close-visible {
+  visibility: visible;
+}
+
+.close_btn {
+  text-align: center;
+  font-size: 32px;
+  margin-top: -3px;
+  color: rgb(217, 83, 79);
 }
