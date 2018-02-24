@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Album.css';
-import { Col, Button } from 'reactstrap';
+import { Col } from 'reactstrap';
 import AddAlbumModal from './AddAlbumModal';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
