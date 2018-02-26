@@ -20,7 +20,8 @@ class Image extends Component {
     this.state = {
       name: props.name,
       image: props.image,
-      modalOpen: false
+      modalOpen: false,
+      albumUuid: props.albumUuid
     }
 
     this.toggle = this.toggle.bind(this);
@@ -36,7 +37,7 @@ class Image extends Component {
     return (
       <Col xs="12" sm="6" lg="4" xl="3">
         {this.state.image ? showImage(this.state.name, this.state.image, showStyle) : showImage('', createImage, createStyle, this.toggle)}
-        <AddImageModal open={this.state.modalOpen} toggle={this.toggle}/>
+        <AddImageModal open={this.state.modalOpen} toggle={this.toggle} albumUuid={this.state.albumUuid} />
       </Col>
     );
   }

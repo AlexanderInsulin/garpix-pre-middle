@@ -11,7 +11,7 @@ export const AlbumPage = ({album, match}) => (
     <Container>
       <Row>
         {album.photos.map((photo, key) =>
-          <Image name={photo.name} image={photo.imageURL} />
+          <Image key={key} name={photo.name} image={photo.imageURL} albumUuid={album.uuid} />
         )}
         <Image  />
       </Row>
