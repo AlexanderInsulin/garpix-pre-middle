@@ -7,7 +7,8 @@ class CloseButton extends Component {
 		super(props);
 		this.state = {
 			type: props.type,
-			uuid: props.uuid,
+			photoUuid: props.photoUuid,
+			albumUuid: props.albumUuid,
 			name: props.name,
 			modalOpen: false
 		}
@@ -33,7 +34,7 @@ class CloseButton extends Component {
 				<div className="close close-visible" onClick={this.handleDelete}>
 					<div className="close_btn">&times;</div>
 				</div>
-				<AreYouShureModal open={this.state.modalOpen} toggle={this.toggle} name={this.state.name}/>
+				<AreYouShureModal open={this.state.modalOpen} toggle={this.toggle} name={this.state.name} albumUuid={this.state.albumUuid} photoUuid={this.state.photoUuid} />
 			</div>
 		)
 	}
