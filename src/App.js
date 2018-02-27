@@ -17,7 +17,7 @@ class App extends Component {
         <div style={{height: '100%'}}>
           <Route exact path="/" component={GaleryPage}/>
           <Route path="/album/:id" component={AlbumPage}/>
-          <Route path="/photo" component={PhotoPage}/>
+          <Route path="/photo/:id" component={PhotoPage}/>
         </div>
       </Router>
     );

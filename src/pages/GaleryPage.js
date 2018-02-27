@@ -22,6 +22,4 @@ const GaleryPage = ({albums, addAlbum}) => (
 const mapStateToProps = (state) => ({
     albums: state.galery
 })
-
-
 export default connect(mapStateToProps)(GaleryPage);
