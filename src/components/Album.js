@@ -5,6 +5,7 @@ import AddAlbumModal from './AddAlbumModal';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Redirect } from 'react-router';
 import CloseButton from './CloseButton';
+// import actions from '../actions'
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
 const show = {
