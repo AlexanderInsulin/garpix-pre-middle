@@ -6,11 +6,13 @@ import { bindActionCreators } from 'redux'
 import Navbar from '../components/Navbar';
 import actions from '../actions';
 
+import created_album from '../created_album.svg';
+
 const GaleryPage = ({albums, addAlbum}) => (
     <Container>
       <Row>
         {albums.map((album, key) =>
-          <Album key={key} uuid={album.uuid} name={album.name} image="https://pp.userapi.com/c831209/v831209113/22953/iERgDLPebI0.jpg"/>
+          <Album key={key} uuid={album.uuid} name={album.name} image={created_album}/>
         )}
         <Album />
       </Row>
