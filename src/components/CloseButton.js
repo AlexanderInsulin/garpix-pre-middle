@@ -30,8 +30,8 @@ class CloseButton extends Component {
 
 	render() {
 		return (
-			<div>
-				<div className="close close-visible" onClick={this.handleDelete}>
+			<div className="close close-visible">
+				<div onClick={this.handleDelete}>
 					<div className="close_btn">&times;</div>
 				</div>
 				<AreYouShureModal open={this.state.modalOpen} toggle={this.toggle} name={this.state.name} albumUuid={this.state.albumUuid} photoUuid={this.state.photoUuid} />

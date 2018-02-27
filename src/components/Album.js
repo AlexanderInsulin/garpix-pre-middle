@@ -23,8 +23,7 @@ const showImage = (name, image, style, toglle) => (
   <div className={"card prew-close " + style.image} style={{ backgroundImage: `url(${image})` }}>
     {style.image === show.image ? <CloseButton /> : null}
     <div className="bordering" onClick={toglle}>
-      <div className={"marginator " + style.spaser}>
-      </div>
+      <div className={"marginator " + style.spaser} />
       <div className={"marginator " + style.text}> <div className="textInner"> {name} </div> </div>
     </div>
   </div>
