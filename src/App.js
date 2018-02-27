@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
 import GaleryPage from './pages/GaleryPage';
 import PhotoPage from './pages/PhotoPage';
 import AlbumPage from './pages/AlbumPage';
-import OpenButton from './components/OpenButton';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 class App extends Component {

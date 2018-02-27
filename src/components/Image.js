@@ -10,12 +10,14 @@ const showStyle = 'imageSizeShow';
 const createStyle = 'imageSizeCreate';
 
 const showImage = (name, image, style, toglle) => (
-  <div className="imageCard prew-close" onClick={toglle}>
-    {style == 'imageSizeShow' ? <CloseButton /> : null}
-    <div className={"imageImage " + style} style={{ backgroundImage: `url(${image})` }}>
-      <div className="borderShower" />
+  <div className="imageCard prew-close">
+    {style === showStyle ? <CloseButton /> : null}
+    <div onClick={toglle}>
+      <div className={"imageImage " + style} style={{ backgroundImage: `url(${image})` }}>
+        <div className="borderShower" />
+      </div>
+      <div className="imageText"> {name} </div>
     </div>
-    <div className="imageText"> {name} </div>
   </div>
 );
 
@@ -42,7 +44,7 @@ class Image extends Component {
 
   handleOnClick() {
     if (this.state.image) {
-      this.setState({redirect: true});
+      this.setState({ redirect: true });
     }
   }
 
@@ -51,8 +53,10 @@ class Image extends Component {
       return <Redirect push to={"/photo/" + this.state.photoUuid} />;
     }
     return (
-      <Col xs="12" sm="6" lg="4" xl="3" onClick={this.handleOnClick}>
-        {this.state.image ? showImage(this.state.name, this.state.image, showStyle) : showImage('', createImage, createStyle, this.toggle)}
+      <Col xs="12" sm="6" lg="4" xl="3">
+        {this.state.image ? 
+          showImage(this.state.name, this.state.image, showStyle, this.handleOnClick) : 
+          showImage('', createImage, createStyle, this.toggle)}
         <AddImageModal open={this.state.modalOpen} toggle={this.toggle} albumUuid={this.state.albumUuid} />
       </Col>
     );

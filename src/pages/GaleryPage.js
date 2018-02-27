@@ -2,9 +2,6 @@ import React from 'react';
 import { Container, Row } from 'reactstrap'
 import Album from '../components/Album';
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import Navbar from '../components/Navbar';
-import actions from '../actions';
 
 import created_album from '../created_album.svg';
 
@@ -13,7 +10,7 @@ const GaleryPage = ({albums, addAlbum}) => (
       <Row>
       {console.log(albums)}
         {albums.map((album, key) =>
-          <Album key={key} uuid={album.uuid} name={album.name} image={album.photos.length == 0 ? created_album : album.photos[0].imageURL}/>
+          <Album key={key} uuid={album.uuid} name={album.name} image={album.photos.length === 0 ? created_album : album.photos[0].imageURL}/>
         )}
         <Album />
       </Row>

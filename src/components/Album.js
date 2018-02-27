@@ -20,7 +20,7 @@ const create = {
 
 const showImage = (name, image, style, toglle) => (
   <div className={"card prew-close " + style.image} style={{ backgroundImage: `url(${image})` }}>
-    {style.image == 'backSize' ? <CloseButton /> : null}
+    {style.image === show.image ? <CloseButton /> : null}
     <div className="bordering" onClick={toglle}>
       <div className={"marginator " + style.spaser}>
       </div>
@@ -59,9 +59,9 @@ class Album extends Component {
       return <Redirect push to={"/album/" + this.state.uuid} />;
     }
     return (
-      <Col xs="12" md="6" xl="4" onClick={this.handleOnClick}>
+      <Col xs="12" md="6" xl="4">
         {this.state.image ?
-          showImage(this.state.name, this.state.image, show) :
+          showImage(this.state.name, this.state.image, show, this.handleOnClick) :
           showImage('', createImage, create, this.toggle)}
         <AddAlbumModal open={this.state.modalOpen} toggle={this.toggle} />
       </Col>
