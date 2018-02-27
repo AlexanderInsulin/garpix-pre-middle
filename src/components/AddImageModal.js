@@ -16,8 +16,6 @@ class AddImageModal extends React.Component {
       callback: props.callback
     };
 
-    console.log(props.albumUuid);
-
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleURLChange = this.handleURLChange.bind(this);
     this.callback = this.callback.bind(this);

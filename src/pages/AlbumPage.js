@@ -13,7 +13,7 @@ export const AlbumPage = ({album, match}) => (
         {album.photos.map((photo, key) =>
           <Image key={key} name={photo.name} image={photo.imageURL} albumUuid={album.uuid} />
         )}
-        <Image  />
+        <Image albumUuid={album.uuid} />
       </Row>
     </Container>
   </div>
