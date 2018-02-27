@@ -20,6 +20,6 @@ export const AlbumPage = ({album, match}) => (
 )
 
 const mapStateToProps = (state, ownProps) => ({
-  album: state.galery.filter(album => album.uuid === ownProps.match.params.id)[0]
+  album: state.galery.find(album => album.uuid === ownProps.match.params.id)
 })
 export default withRouter(connect(mapStateToProps)(AlbumPage));
