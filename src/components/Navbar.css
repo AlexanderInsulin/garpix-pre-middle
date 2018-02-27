@@ -2,30 +2,64 @@
   background-color:#818181;
   height: 64px;
   padding: 0px;
-  padding-left: 22px; 
-  padding-right: 30px; 
+  padding-left: 22px !important;
+  padding-right: 15px !important;
   flex-flow: row nowrap !important; 
-}
-
-.rightBorder {
-  border-right: 2px solid; 
-  border-right-color: white; 
-  height: 36px;
-}
-
-.navIcone {
-  margin-right: 22px;
-  height: 21px;
 }
 
 .navCenter {
   width: 100%;
-  height: 21px;
   color: white;
   text-align: center;
-  
+  font-size: 24px !important;
 }
 
-.navEditter {
-  color: white;
+.customBrandStyle {
+  padding-top: 0px! important;
+  padding-bottom: 0px!  important;
+  margin-right: 0px!  important;
+}
+
+.leftContent {
+  height: 36px;
+  margin-right: 22px!  important;
+}
+
+.leftBorder {
+  border-right: 2px solid; 
+  border-right-color: white; 
+  height: 30px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.navBackIcon {
+  font-size: 36px;
+  margin: 0px;
+  border-radius: 20%;
+}
+
+.navBackIcon:hover {
+  background:#A2A2A2;
+  border-radius: 20%;
+  -webkit-transition: all 0.33s ease;
+  transition: all 0.33s ease;
+}
+
+.rightContent {
+  height: 36px;
+  width: 36px;
+  margin: 9px !important;
+}
+
+.navRightIcons {
+  padding: 6px;
+  border-radius: 20%;
+}
+
+.navRightIcons:hover {
+  background:#A2A2A2;
+  border-radius: 20%;
+  -webkit-transition: all 0.33s ease;
+  transition: all 0.33s ease;
 }

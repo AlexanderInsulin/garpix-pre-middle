@@ -4,13 +4,28 @@ import { Col } from 'reactstrap';
 import AddAlbumModal from './AddAlbumModal';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Redirect } from 'react-router';
+import CloseButton from './CloseButton';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
+const show = {
+  image: 'backSize',
+  spaser: 'spaser',
+  text: 'text',
+}
+const create = {
+  image: 'imageSizeCreate',
+  spaser: 'spaserCreate',
+  text: '',
+}
 
-const showImage = (name, image, sizeStyle, toglle) => (
-  <div className={"card " + sizeStyle} style={{ backgroundImage: `url(${image})` }} onClick={toglle}>
-    <div className="filler"> </div>
-    <div className="text"> {name} </div>
+const showImage = (name, image, style, toglle) => (
+  <div className={"card prew-close " + style.image} style={{ backgroundImage: `url(${image})` }}>
+    {style.image == 'backSize' ? <CloseButton /> : null}
+    <div className="bordering" onClick={toglle}>
+      <div className={"marginator " + style.spaser}>
+      </div>
+      <div className={"marginator " + style.text}> <div className="textInner"> {name} </div> </div>
+    </div>
   </div>
 );
 
@@ -18,9 +33,9 @@ class Album extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uuid: this.props.uuid,
-      name: this.props.name,
-      image: this.props.image,
+      uuid: props.uuid,
+      name: props.name,
+      image: props.image,
       modalOpen: false,
     }
 

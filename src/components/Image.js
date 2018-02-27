@@ -3,14 +3,18 @@ import './Image.css';
 import { Col } from 'reactstrap';
 import AddImageModal from './AddImageModal';
 import { Redirect } from 'react-router';
+import CloseButton from './CloseButton';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
 const showStyle = 'imageSizeShow';
 const createStyle = 'imageSizeCreate';
 
-const showImage = (name, image, sizeStyle, toglle) => (
-  <div className="imageCard" onClick={toglle}>
-    <div className={sizeStyle + " imageImage"} style={{ backgroundImage: `url(${image})` }}> <div className="borderShower" /> </div>
+const showImage = (name, image, style, toglle) => (
+  <div className="imageCard prew-close" onClick={toglle}>
+    {style == 'imageSizeShow' ? <CloseButton /> : null}
+    <div className={"imageImage " + style} style={{ backgroundImage: `url(${image})` }}>
+      <div className="borderShower" />
+    </div>
     <div className="imageText"> {name} </div>
   </div>
 );
