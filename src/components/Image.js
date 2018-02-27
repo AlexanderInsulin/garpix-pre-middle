@@ -51,7 +51,7 @@ class Image extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect push to={"/photo/" + this.state.photoUuid} />;
+      return <Redirect push to={`/photo/${this.state.albumUuid}/${this.state.photoUuid}`} />;
     }
     return (
       <Col xs="12" sm="6" lg="4" xl="3">

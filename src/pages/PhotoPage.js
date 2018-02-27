@@ -14,11 +14,10 @@ const PhotoPage = ({ photo }) => (
   </div>
 )
 
-const mapStateToProps = (state, ownProps) => {
-  let photos = [];
-  state.galery.map(album => album.photos).forEach(phts => photos = photos.concat(phts));
-  return ({
-    photo: photos.find(photo => photo.uuid === ownProps.match.params.id)
-  })
-}
+const mapStateToProps = (state, ownProps) => ({
+  photo: state.galery
+        .find(album => album.uuid === ownProps.match.params.albumId).photos
+        .find(photo => photo.uuid === ownProps.match.params.photoId)
+})
+
 export default withRouter(connect(mapStateToProps)(PhotoPage));
