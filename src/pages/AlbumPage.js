@@ -5,9 +5,9 @@ import { withRouter } from 'react-router-dom';
 import Image from '../components/Image';
 import Navbar from '../components/Navbar';
 
-export const AlbumPage = ({album, match}) => (
+export const AlbumPage = ({ album }) => (
   <div>
-    <Navbar title={album.name} />
+    <Navbar title={album.name} backURL='/'/>
     <Container>
       <Row>
         {album.photos.map((photo, key) =>

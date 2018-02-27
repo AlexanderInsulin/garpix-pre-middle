@@ -3,10 +3,10 @@ import './Navbar.css';
 
 import { Navbar as NavbarBootstrap, NavbarBrand } from 'reactstrap';
 
-const Navbar = ({ title }) => (
+const Navbar = ({ title, backURL = '#' }) => (
   <NavbarBootstrap className="navbarCustom" dark sticky="top">
 
-      <NavbarBrand href="/" className="customBrandStyle leftContent">
+      <NavbarBrand href={backURL} className="customBrandStyle leftContent">
         <i className="material-icons navBackIcon">chevron_left</i>
       </NavbarBrand>
 
