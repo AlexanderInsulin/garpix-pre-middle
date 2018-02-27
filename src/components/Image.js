@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Image.css';
 import { Col } from 'reactstrap';
 import AddImageModal from './AddImageModal';
+import { Redirect } from 'react-router';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
 const showStyle = 'imageSizeShow';
@@ -21,10 +22,12 @@ class Image extends Component {
       name: props.name,
       image: props.image,
       modalOpen: false,
+      photoUuid: props.photoUuid,
       albumUuid: props.albumUuid
     }
 
     this.toggle = this.toggle.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   toggle() {
@@ -33,9 +36,18 @@ class Image extends Component {
     });
   }
 
+  handleOnClick() {
+    if (this.state.image) {
+      this.setState({redirect: true});
+    }
+  }
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect push to={"/photo/" + this.state.photoUuid} />;
+    }
     return (
-      <Col xs="12" sm="6" lg="4" xl="3">
+      <Col xs="12" sm="6" lg="4" xl="3" onClick={this.handleOnClick}>
         {this.state.image ? showImage(this.state.name, this.state.image, showStyle) : showImage('', createImage, createStyle, this.toggle)}
         <AddImageModal open={this.state.modalOpen} toggle={this.toggle} albumUuid={this.state.albumUuid} />
       </Col>
