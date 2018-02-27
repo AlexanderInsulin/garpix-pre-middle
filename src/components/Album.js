@@ -61,8 +61,8 @@ class Album extends Component {
     return (
       <Col xs="12" md="6" xl="4" onClick={this.handleOnClick}>
         {this.state.image ?
-          showImage(this.state.name, this.state.image, "backSize") :
-          showImage('', createImage, "backSizeCreate", this.toggle)}
+          showImage(this.state.name, this.state.image, show) :
+          showImage('', createImage, create, this.toggle)}
         <AddAlbumModal open={this.state.modalOpen} toggle={this.toggle} />
       </Col>
     );
