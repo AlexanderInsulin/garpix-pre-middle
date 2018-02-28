@@ -9,7 +9,7 @@ const PhotoPage = ({ photo,  backURL }) => (
     <Navbar title={photo.name} backURL={backURL} />
     <Container className="align-middle text-center">
       <img src={photo.imageURL} className="img-fluid" alt={photo.name}
-        style={{ marginTop: '32px', marginBottom: '32px', maxHeight: '85vh' }}></img>
+        style={{ marginTop: '32px', maxHeight: '85vh' }}></img>
     </Container>
   </div>
 )
