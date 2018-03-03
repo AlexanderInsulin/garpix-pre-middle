@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import actions from '../actions'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import actions from '../actions';
+
 
 class AreYouShureModal extends Component {
   constructor(props) {
@@ -11,12 +12,13 @@ class AreYouShureModal extends Component {
       open: props.open,
       toggle: props.toggle,
       name: props.name,
-      callback: props.callback,
+      type: props.type,
+      callbackPhoto: props.callbackPhoto,
+      callbackAlbum: props.callbackAlbum,
 			photoUuid: props.photoUuid,
-			albumUuid: props.albumUuid
+      albumUuid: props.albumUuid,
+      uuid: props.albumUuid
     }
-
-    console.log(this.state);
 
     this.callback = this.callback.bind(this);
   }
@@ -24,16 +26,19 @@ class AreYouShureModal extends Component {
   componentWillReceiveProps(props) {
     this.setState({
       open: props.open,
-      toggle: props.toggle,
-      callback: props.callback,
-			photoUuid: props.photoUuid,
-			albumUuid: props.albumUuid
+      toggle: props.toggle
     })
   }
 
   callback() {
-    console.log(this.state);
-    this.state.callback(this.state.albumUuid, this.state.photoUuid);
+    switch (this.state.type) {
+      case actions.types.DELETE_PHOTO:
+        this.state.callbackPhoto(this.state.albumUuid, this.state.photoUuid);
+        break;
+      case actions.types.DELETE_ALBUM:
+        this.state.callbackAlbum(this.state.uuid);
+        break;
+    };
     this.state.toggle();
   }
 
@@ -51,7 +56,8 @@ class AreYouShureModal extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  callback: bindActionCreators(actions.album.deletePhotoFromAlbum, dispatch),
+  callbackPhoto: bindActionCreators(actions.album.deletePhotoFromAlbum, dispatch),
+  callbackAlbum: bindActionCreators(actions.album.deleteAlbum, dispatch)
 })
 
 export default connect(null, mapDispatchToProps)(AreYouShureModal);

@@ -4,7 +4,7 @@ import { Col } from 'reactstrap';
 import AddImageModal from './AddImageModal';
 import { Redirect } from 'react-router';
 import CloseButton from './CloseButton';
-import actions from '../actions'
+import actions from '../actions';
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
 const showStyle = 'imageSizeShow';

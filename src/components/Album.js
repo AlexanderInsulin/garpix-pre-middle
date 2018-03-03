@@ -5,7 +5,7 @@ import AddAlbumModal from './AddAlbumModal';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Redirect } from 'react-router';
 import CloseButton from './CloseButton';
-// import actions from '../actions'
+import actions from '../actions'
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
 const show = {
@@ -19,9 +19,9 @@ const create = {
   text: '',
 }
 
-const showImage = (name, image, style, toglle) => (
+const showImage = (name, image, albumUuid, style, toglle) => (
   <div className={"card prew-close " + style.image} style={{ backgroundImage: `url(${image})` }}>
-    {style.image === show.image ? <CloseButton /> : null}
+    {style.image === show.image ? <CloseButton type={actions.types.DELETE_ALBUM} albumUuid={albumUuid} name={name}/> : null}
     <div className="bordering" onClick={toglle}>
       <div className={"marginator " + style.spaser} />
       <div className={"marginator " + style.text}> <div className="textInner"> {name} </div> </div>
@@ -61,8 +61,8 @@ class Album extends Component {
     return (
       <Col xs="12" md="6" xl="4">
         {this.state.image ?
-          showImage(this.state.name, this.state.image, show, this.handleOnClick) :
-          showImage('', createImage, create, this.toggle)}
+          showImage(this.state.name, this.state.image, this.state.uuid, show, this.handleOnClick) :
+          showImage('', createImage, null, create, this.toggle)}
         <AddAlbumModal open={this.state.modalOpen} toggle={this.toggle} />
       </Col>
     );

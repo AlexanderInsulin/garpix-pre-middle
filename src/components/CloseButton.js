@@ -34,7 +34,14 @@ class CloseButton extends Component {
 				<div onClick={this.handleDelete}>
 					<div className="close_btn">&times;</div>
 				</div>
-				<AreYouShureModal open={this.state.modalOpen} toggle={this.toggle} name={this.state.name} albumUuid={this.state.albumUuid} photoUuid={this.state.photoUuid} />
+				<AreYouShureModal 
+						open={this.state.modalOpen} 
+						toggle={this.toggle} 
+						name={this.state.name} 
+						albumUuid={this.state.albumUuid} 
+						photoUuid={this.state.photoUuid} 
+						type={this.state.type}
+				/>
 			</div>
 		)
 	}
