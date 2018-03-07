@@ -17,6 +17,15 @@ class CloseButton extends Component {
 		this.toggle = this.toggle.bind(this);
 	}
 
+	componentWillReceiveProps(props) {
+    this.setState({
+			type: props.type,
+			photoUuid: props.photoUuid,
+			albumUuid: props.albumUuid,
+			name: props.name
+    })
+  }
+
 	handleDelete() {
 		console.log(this.state);
 		this.toggle();

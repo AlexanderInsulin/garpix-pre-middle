@@ -26,7 +26,14 @@ class AreYouShureModal extends Component {
   componentWillReceiveProps(props) {
     this.setState({
       open: props.open,
-      toggle: props.toggle
+      toggle: props.toggle,
+      name: props.name,
+      type: props.type,
+      callbackPhoto: props.callbackPhoto,
+      callbackAlbum: props.callbackAlbum,
+			photoUuid: props.photoUuid,
+      albumUuid: props.albumUuid,
+      uuid: props.albumUuid
     })
   }
 

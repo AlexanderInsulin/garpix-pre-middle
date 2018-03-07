@@ -37,6 +37,14 @@ class Image extends Component {
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({
+      name: props.name,
+      image: props.image,
+      photoUuid: props.photoUuid
+    })
+  }
+
   toggle() {
     this.setState({
       modalOpen: !this.state.modalOpen

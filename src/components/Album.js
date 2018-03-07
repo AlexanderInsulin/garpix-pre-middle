@@ -42,6 +42,14 @@ class Album extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({
+      uuid: props.uuid,
+      name: props.name,
+      image: props.image
+    })
+  }
+
   toggle() {
     this.setState({
       modalOpen: !this.state.modalOpen
