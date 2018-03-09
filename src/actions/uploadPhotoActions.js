@@ -6,7 +6,7 @@ import {
   UPLOAD_PHOTO_SUCCESS,
   UPLOAD_PHOTO_FAILURE,
 } from './types';
-import addPhotoToAlbum from './albumActions';
+import * as album from './albumActions';
 import axios from 'axios';
 
 export const previewPhotoRequest = (photoFile) => (dispatch) => {
@@ -42,7 +42,7 @@ export const uploadPhotoRequest = (albumUuid, photoName, imageBase64) => (dispat
     headers: { 'Authorization': 'Client-ID 6a5400948b3b376' },
   }).then((res) => {
     dispatch(uploadPhotoSuccess(albumUuid, photoName, res.data.data.link))
-    dispatch(addPhotoToAlbum(albumUuid, photoName, res.data.data.link))
+    dispatch(album.addPhotoToAlbum(albumUuid, photoName, res.data.data.link))
   })
     .catch((error) => uploadPhotoFailure(error))
   return {
