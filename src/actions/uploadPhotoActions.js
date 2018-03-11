@@ -10,8 +10,8 @@ import * as album from './albumActions';
 import axios from 'axios';
 
 export const previewPhotoRequest = (photoFile) => (dispatch) => {
-  dispatch(previewPhotoRequest());
   let reader = new FileReader();
+  console.log(photoFile)
   reader.readAsDataURL(photoFile);
   reader.onload = () => {
     dispatch(previewPhotoSuccess(reader.result))
@@ -37,7 +37,7 @@ export const previewPhotoFailure = (error) => ({
 export const uploadPhotoRequest = (albumUuid, photoName, imageBase64) => (dispatch) => {
   axios.post('https://api.imgur.com/3/image', {
     title: photoName,
-    image: imageBase64
+    image: imageBase64.replace('data:image/png;base64', '')
   }, {
     headers: { 'Authorization': 'Client-ID 6a5400948b3b376' },
   }).then((res) => {
