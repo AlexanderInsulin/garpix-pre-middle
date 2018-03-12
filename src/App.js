@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
 import GaleryPage from './pages/GaleryPage';
 import PhotoPage from './pages/PhotoPage';
 import AlbumPage from './pages/AlbumPage';
-import OpenButton from './components/OpenButton';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 class App extends Component {
@@ -16,8 +13,8 @@ class App extends Component {
       <Router>
         <div style={{height: '100%'}}>
           <Route exact path="/" component={GaleryPage}/>
-          <Route path="/album" component={AlbumPage}/>
-          <Route path="/photo" component={PhotoPage}/>
+          <Route path="/album/:id" component={AlbumPage}/>
+          <Route path="/photo/:albumId/:photoId" component={PhotoPage}/>
         </div>
       </Router>
     );

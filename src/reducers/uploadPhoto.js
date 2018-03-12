@@ -9,13 +9,13 @@ const initialState = {
   error: ''
 }
 
-export const uploadPhoto = (state = initialState, action) => {
+const uploadPhoto = (state = initialState, action) => {
   switch (action.type) {
     case actions.types.PREVIEW_PHOTO_REQUEST:
       return {...state, load: true}
     case actions.types.PREVIEW_PHOTO_SUCCESS:
       return {...state, imageBase64: action.image, load: false}
-    case actions.type.PREVIEW_PHOTO_FAILURE:
+    case actions.types.PREVIEW_PHOTO_FAILURE:
       return {...state, error: action.error, load: false}
     case actions.types.UPLOAD_PHOTO_REQUEST:
       return {...state, load: true}
@@ -27,3 +27,5 @@ export const uploadPhoto = (state = initialState, action) => {
       return state;
   }
 }
+
+export default uploadPhoto;

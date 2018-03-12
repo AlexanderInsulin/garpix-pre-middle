@@ -6,12 +6,12 @@ import {
   UPLOAD_PHOTO_SUCCESS,
   UPLOAD_PHOTO_FAILURE,
 } from './types';
-import addPhotoToAlbum from './albumActions';
+import * as album from './albumActions';
 import axios from 'axios';
 
-export const previewPhoto = (photoFile) => (dispatch) => {
-  dispatch(previewPhotoRequest());
+export const previewPhotoRequest = (photoFile) => (dispatch) => {
   let reader = new FileReader();
+  console.log(photoFile)
   reader.readAsDataURL(photoFile);
   reader.onload = () => {
     dispatch(previewPhotoSuccess(reader.result))
@@ -19,11 +19,10 @@ export const previewPhoto = (photoFile) => (dispatch) => {
   reader.onerror = (e) => {
     dispatch(previewPhotoFailure(e))
   }
+  return {
+    type: PREVIEW_PHOTO_REQUEST
+  }
 }
-
-export const previewPhotoRequest = () => ({
-  type: PREVIEW_PHOTO_REQUEST
-})
 
 export const previewPhotoSuccess = (imageBase64) => ({
   type: PREVIEW_PHOTO_SUCCESS,
@@ -35,22 +34,21 @@ export const previewPhotoFailure = (error) => ({
   error: error
 })
 
-export const uploadPhoto = (albumUuid, photoName, imageBase64) => (dispatch) => {
+export const uploadPhotoRequest = (albumUuid, photoName, imageBase64) => (dispatch) => {
   axios.post('https://api.imgur.com/3/image', {
     title: photoName,
-    image: imageBase64
+    image: imageBase64.replace('data:image/png;base64', '')
   }, {
     headers: { 'Authorization': 'Client-ID 6a5400948b3b376' },
   }).then((res) => {
     dispatch(uploadPhotoSuccess(albumUuid, photoName, res.data.data.link))
-    dispatch(addPhotoToAlbum(albumUuid, photoName, res.data.data.link))
+    dispatch(album.addPhotoToAlbum(albumUuid, photoName, res.data.data.link))
   })
     .catch((error) => uploadPhotoFailure(error))
+  return {
+    type: UPLOAD_PHOTO_REQUEST
+  }
 }
-
-export const uploadPhotoRequest = () => ({
-  type: UPLOAD_PHOTO_REQUEST
-})
 
 export const uploadPhotoSuccess = (imageURL) => ({
   type: UPLOAD_PHOTO_SUCCESS,

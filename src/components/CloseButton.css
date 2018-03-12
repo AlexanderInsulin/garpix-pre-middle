@@ -1,0 +1,26 @@
+.prew-close .close {
+    margin-left: auto;
+    width: 32px;
+    height: 32px;
+    margin-bottom: -39px;
+    margin-top: 7px;
+    margin-right: 7px; 
+    border-radius: 4px;
+    background-color: rgb(216, 216, 216);
+}
+
+.close-visible {
+    visibility: hidden;
+}
+
+.prew-close:hover  .close-visible {
+    visibility: visible;
+}
+
+.close_btn {
+    text-align: center;
+    font-size: 32px;
+    margin-top: -3px;
+    user-select: none;
+    color: rgb(217, 83, 79);
+}

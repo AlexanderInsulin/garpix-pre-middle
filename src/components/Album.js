@@ -2,13 +2,30 @@ import React, { Component } from 'react';
 import './Album.css';
 import { Col } from 'reactstrap';
 import AddAlbumModal from './AddAlbumModal';
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Redirect } from 'react-router';
+import CloseButton from './CloseButton';
+import actions from '../actions'
 
 const createImage = 'https://pp.userapi.com/c834301/v834301478/ae5a9/VrmQSB3NPeU.jpg';
+const show = {
+  image: 'backSize',
+  spaser: 'spaser',
+  text: 'text',
+}
+const create = {
+  image: 'imageSizeCreate',
+  spaser: 'spaserCreate',
+  text: '',
+}
 
-const showImage = (name, image, sizeStyle, toglle) => (
-  <div className={"card " + sizeStyle} style={{ backgroundImage: `url(${image})` }} onClick={toglle}>
-    <div className="filler"> </div>
-    <div className="text"> {name} </div>
+const showImage = (name, image, albumUuid, style, toglle) => (
+  <div className={"card prew-close " + style.image} style={{ backgroundImage: `url(${image})` }}>
+    {style.image === show.image ? <CloseButton type={actions.types.DELETE_ALBUM} albumUuid={albumUuid} name={name}/> : null}
+    <div className="bordering" onClick={toglle}>
+      <div className={"marginator " + style.spaser} />
+      <div className={"marginator " + style.text}> <div className="textInner"> {name} </div> </div>
+    </div>
   </div>
 );
 
@@ -16,12 +33,21 @@ class Album extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.name,
-      image: this.props.image,
-      modalOpen: false
+      uuid: props.uuid,
+      name: props.name,
+      image: props.image,
+      modalOpen: false,
     }
 
     this.toggle = this.toggle.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      uuid: props.uuid,
+      name: props.name,
+      image: props.image
+    })
   }
 
   toggle() {
@@ -30,10 +56,21 @@ class Album extends Component {
     });
   }
 
+  handleOnClick = () => {
+    if (this.state.image) {
+      this.setState({ redirect: true });
+    }
+  }
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect push to={"/album/" + this.state.uuid} />;
+    }
     return (
       <Col xs="12" md="6" xl="4">
-        {this.state.image ? showImage(this.state.name, this.state.image, "backSize") : showImage('', createImage, "backSizeCreate", this.toggle)}
+        {this.state.image ?
+          showImage(this.state.name, this.state.image, this.state.uuid, show, this.handleOnClick) :
+          showImage('', createImage, null, create, this.toggle)}
         <AddAlbumModal open={this.state.modalOpen} toggle={this.toggle} />
       </Col>
     );

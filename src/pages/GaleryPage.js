@@ -1,16 +1,22 @@
 import React from 'react';
 import { Container, Row } from 'reactstrap'
 import Album from '../components/Album';
-import Navbar from '../components/Navbar';
+import { connect } from 'react-redux'
 
-const GaleryPage = () => (
+import created_album from '../created_album.svg';
+
+const GaleryPage = ({albums, addAlbum}) => (
     <Container>
       <Row>
-        <Album name="album 1" image="https://pp.userapi.com/c831209/v831209113/22953/iERgDLPebI0.jpg" />
-        <Album name="album 2" image="https://pp.userapi.com/c831209/v831209113/22953/iERgDLPebI0.jpg" />
+        {albums.map((album, key) =>
+          <Album key={key} uuid={album.uuid} name={album.name} image={album.photos.length === 0 ? created_album : album.photos[0].imageURL}/>
+        )}
         <Album />
       </Row>
     </Container>
 )
 
-export default GaleryPage;
+const mapStateToProps = (state) => ({
+    albums: state.galery
+})
+export default connect(mapStateToProps)(GaleryPage);
