@@ -11,7 +11,7 @@ class AddAlbumModal extends React.Component {
     this.state = {
       open: props.open,
       toggle: props.toggle,
-      text: '',
+      text: 'New album',
       callback: props.callback
     }
 
@@ -41,7 +41,7 @@ class AddAlbumModal extends React.Component {
       <Modal isOpen={this.state.open} toggle={this.state.toggle}>
         <ModalHeader toggle={this.state.toggle}>Создание альбома</ModalHeader>
         <ModalBody>
-          <Input type="text" placeholder="Название альбома" onChange={this.handleNameChange} />
+          <Input type="text" placeholder="Название альбома" value={this.state.text} onChange={this.handleNameChange} />
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={this.callback}>Создать</Button>
