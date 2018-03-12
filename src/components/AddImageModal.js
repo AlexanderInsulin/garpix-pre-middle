@@ -52,7 +52,7 @@ class AddImageModal extends React.Component {
         <ModalHeader toggle={this.state.toggle}> Загрузка фотографии </ModalHeader>
         <ModalBody>
           <Input type="text" value={this.state.text} placeholder="Название фотографии" onChange={this.handleNameChange} />
-          <div className="custom-file">
+          <div className="custom-file" style={{'marginTop': '8px', 'marginBottom': '8px'}}>
             <input type="file" className="custom-file-input" accept="image/*" id="customFile" onChange={this.handleFileChange} />
             <label className="custom-file-label" htmlFor="customFile"></label>
           </div>
