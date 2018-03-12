@@ -53,7 +53,7 @@ class AddImageModal extends React.Component {
         <ModalBody>
           <Input type="text" placeholder="Название фотографии" onChange={this.handleNameChange} />
           <div className="custom-file">
-            <input type="file" className="custom-file-input" id="customFile" onChange={this.handleFileChange} />
+            <input type="file" className="custom-file-input" accept="image/*" id="customFile" onChange={this.handleFileChange} />
             <label className="custom-file-label" htmlFor="customFile"></label>
           </div>
           <img className="img-fluid" src={this.state.preview} />
@@ -65,7 +65,6 @@ class AddImageModal extends React.Component {
       </Modal>
     )
   }
-
 }
 
 const mapDispatchToProps = (dispatch) => ({
