@@ -11,7 +11,7 @@ class AddImageModal extends React.Component {
       open: props.open,
       toggle: props.toggle,
       albumUuid: props.albumUuid,
-      text: '',
+      text: 'New photo',
       url: '',
       callback: props.callback,
       uploadPhoto: props.uploadPhoto,
@@ -51,7 +51,7 @@ class AddImageModal extends React.Component {
       <Modal isOpen={this.state.open} toggle={this.state.toggle}>
         <ModalHeader toggle={this.state.toggle}> Загрузка фотографии </ModalHeader>
         <ModalBody>
-          <Input type="text" placeholder="Название фотографии" onChange={this.handleNameChange} />
+          <Input type="text" value={this.state.text} placeholder="Название фотографии" onChange={this.handleNameChange} />
           <div className="custom-file">
             <input type="file" className="custom-file-input" accept="image/*" id="customFile" onChange={this.handleFileChange} />
             <label className="custom-file-label" htmlFor="customFile"></label>
