@@ -20,8 +20,7 @@ class AddImageModal extends React.Component {
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleURLChange = this.handleURLChange.bind(this);
-    this.callback = this.callback.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -38,13 +37,9 @@ class AddImageModal extends React.Component {
     this.setState({ text: event.target.value });
   }
 
-  handleURLChange(event) {
-    this.setState({ url: event.target.value });
-  }
-
-  callback() {
-    this.state.callback(this.state.file);
-    // this.state.toggle();
+  handleFileChange(event) {
+    this.setState({file: event.target.files[0]})
+    this.state.callback(event.target.files[0]);
   }
 
   render() {
@@ -54,14 +49,13 @@ class AddImageModal extends React.Component {
         <ModalBody>
           <Input type="text" placeholder="Название фотографии" onChange={this.handleNameChange} />
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" onChange={(e) => this.setState({file: e.target.files[0]})} />
+            <input type="file" class="custom-file-input" id="customFile" onChange={(e) => this.handleFileChange(e)} />
             <label class="custom-file-label" for="customFile"></label>
           </div>
           <img src={this.state.preview} />
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={() => this.state.uploadPhoto(this.state.albumUuid, this.state.text, this.state.preview)}>Загрузить</Button>
-          <Button color="primary" onClick={this.callback}>Сохранить</Button>
           <Button color="secondary" onClick={this.state.toggle}>Отменить</Button>
         </ModalFooter>
       </Modal>
