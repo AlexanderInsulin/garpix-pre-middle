@@ -20,6 +20,7 @@ class AddImageModal extends React.Component {
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -40,6 +41,11 @@ class AddImageModal extends React.Component {
     this.state.callback(event.target.files[0]);
   }
 
+  handleUpload() {
+    this.state.uploadPhoto(this.state.albumUuid, this.state.text, this.state.preview)
+    this.state.toggle()
+  }
+
   render() {
     return (
       <Modal isOpen={this.state.open} toggle={this.state.toggle}>
@@ -53,7 +59,7 @@ class AddImageModal extends React.Component {
           <img className="img-fluid" src={this.state.preview} />
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={() => this.state.uploadPhoto(this.state.albumUuid, this.state.text, this.state.preview)}>Загрузить</Button>
+          <Button color="primary" onClick={this.handleUpload}>Загрузить</Button>
           <Button color="secondary" onClick={this.state.toggle}>Отменить</Button>
         </ModalFooter>
       </Modal>
